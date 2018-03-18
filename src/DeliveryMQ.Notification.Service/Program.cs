@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DeliveryMQ.RegistrationService
+namespace DeliveryMQ.NotificationService
 {
     class Program
     {

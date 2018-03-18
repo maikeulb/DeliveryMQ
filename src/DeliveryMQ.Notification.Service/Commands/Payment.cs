@@ -1,11 +1,11 @@
 using System;
 
-namespace DeliveryMQ.Payment.Service.Commands
+namespace DeliveryMQ.NotificationService.Commands
 {
-	public class Payment : ICommand
+	public class Registration : ICommand
 	{
-		public decimal Amount { get; set; }
-		public string CardNumber { get; set; }
-		public string NameOnCard { get; set; }
+		public string Name { get; set; }
+		public string Address { get; set; }
+		public string City { get; set; }
 	}
 }
