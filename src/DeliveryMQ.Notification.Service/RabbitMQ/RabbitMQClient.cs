@@ -11,7 +11,7 @@ namespace DeliveryMQ.NotificationService.RabbitMQ
         private static IConnection _connection;
         
         private const string ExchangeName = "Topic_Exchange";
-        private const string RegistrationQueueName = "RegistrationTopic_Queue";
+        private const string RegistrationQueueName = "NotificationTopic_Queue";
 
         public void CreateConnection()
         {
@@ -31,7 +31,7 @@ namespace DeliveryMQ.NotificationService.RabbitMQ
             {
                 using (var channel = _connection.CreateModel())
                 {
-                    Console.WriteLine("Listening for Topic <delivery.registration>");
+                    Console.WriteLine("Listening for Topic <delivery.notification>");
                     Console.WriteLine("-----------------------------------------");
                     Console.WriteLine();
 
@@ -40,7 +40,7 @@ namespace DeliveryMQ.NotificationService.RabbitMQ
                         true, false, false, null);
 
                     channel.QueueBind(RegistrationQueueName, ExchangeName, 
-                        "delivery.registration");
+                        "delivery.notification");
 
                     channel.BasicQos(0, 10, false);
                     Subscription subscription = new Subscription(channel, 
@@ -55,7 +55,7 @@ namespace DeliveryMQ.NotificationService.RabbitMQ
 
                         var routingKey = deliveryArguments.RoutingKey;
 
-                        Console.WriteLine("--- Notification - Routing Key <{0}> : {1} : {2} : {3}", routingKey, message.Name, message.Address, message.City);
+                        Console.WriteLine("--- Notification - Routing Key <{0}> : {1}, {2}, {3}, {4}", routingKey, message.Email, message.Name, message.Address, message.City);
                         subscription.Ack(deliveryArguments);
                     }
                 }

@@ -46,7 +46,7 @@ namespace DeliveryMQ.RegistrationService.RabbitMQ
                         var message = (Register)deliveryArguments.Body.DeSerialize(typeof(Register));
                         var routingKey = deliveryArguments.RoutingKey;
 
-                        Console.WriteLine("-- Register - Routing Key <{0}> : {1}, {2}, {3}", routingKey, message.Name, message.Address, message.City):
+                        Console.WriteLine("-- Register - Routing Key <{0}> : {1}, {2}, {3}, {4}", routingKey, message.Email, message.Name, message.Address, message.City):
                         subscription.Ack(registrationEvent);
                     }
                 }
