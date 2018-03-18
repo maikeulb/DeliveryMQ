@@ -5,15 +5,15 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9873ADD0-561E-493F-80F6-13C637E64A1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentMQ.Api", "src\PaymentMQ.Api\PaymentMQ.Api.csproj", "{2C1612B2-E44C-4A62-BC1A-9D426798447B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliveryMq.Api", "src\DeliveryMq.Api\DeliveryMq.Api.csproj", "{2C1612B2-E44C-4A62-BC1A-9D426798447B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentMQ.Messages", "src\PaymentMQ.Messages\PaymentMQ.Messages.csproj", "{BA946E83-538B-489F-B41F-67FB16005E42}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliveryMq.Messages", "src\DeliveryMq.Messages\DeliveryMq.Messages.csproj", "{BA946E83-538B-489F-B41F-67FB16005E42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentMQ.Notification.Service", "src\PaymentMQ.Notification.Service\PaymentMQ.Notification.Service.csproj", "{184411E5-E4D6-4BD7-BB96-687EB10B1B03}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliveryMq.Notification.Service", "src\DeliveryMq.Notification.Service\DeliveryMq.Notification.Service.csproj", "{184411E5-E4D6-4BD7-BB96-687EB10B1B03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentMQ.Payment.Service", "src\PaymentMQ.Payment.Service\PaymentMQ.Payment.Service.csproj", "{D04151C9-31E0-4684-9BCA-EC01261175F3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliveryMq.Payment.Service", "src\DeliveryMq.Payment.Service\DeliveryMq.Payment.Service.csproj", "{D04151C9-31E0-4684-9BCA-EC01261175F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentMQ.PurchaseOrder.Service", "src\PaymentMQ.PurchaseOrder.Service\PaymentMQ.PurchaseOrder.Service.csproj", "{A687AC24-3743-48EB-AEF2-DE357A32FA4B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliveryMq.PurchaseOrder.Service", "src\DeliveryMq.PurchaseOrder.Service\DeliveryMq.PurchaseOrder.Service.csproj", "{A687AC24-3743-48EB-AEF2-DE357A32FA4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

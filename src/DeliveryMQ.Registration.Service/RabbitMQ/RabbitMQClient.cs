@@ -3,7 +3,7 @@ using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using RabbitMQ.Client.MessagePatterns;
 
-namespace PaymentMQ.ProductOrder.Service.RabbitMQ
+namespace DeliveryMQ.ProductOrder.Service.RabbitMQ
 {
     public class RabbitMQConsumer
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace PaymentMQ.PurchaseOrder.Service.Commands
+namespace DeliveryMQ.PurchaseOrder.Service.Commands
 {
 	public class PurchaseOrder : ICommand
     {

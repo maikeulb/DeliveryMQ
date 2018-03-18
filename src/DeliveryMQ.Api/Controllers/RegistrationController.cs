@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using PaymentMQ.Api.Commands;
-using PaymentMQ.Api.RabbitMq;
+using DeliveryMQ.Api.Commands;
+using DeliveryMQ.Api.RabbitMq;
 
-namespace PaymentMq.Api.Controllers
+namespace DeliveryMQ.Api.Controllers
 {
     [Route("api/[controller]")]
-    public class PaymentController : Controller
+    public class RegistrationController : Controller
     {       
         [HttpPost]
-        public ActionResult SendPayment([FromBody] CardPayment payment)
+        public ActionResult SendRegistration([FromBody] Registration command)
         {
             try
             {
                 RabbitMQClient client = new RabbitMQClient();
-                client.SendPayment(payment);
+                client.SendRegistration(command);
                 client.Close();
             }
             catch (Exception)
@@ -25,7 +25,7 @@ namespace PaymentMq.Api.Controllers
                 return BadRequest();
             }
 
-            return Ok(payment);
+            return Ok(command);
         }
     }
 }

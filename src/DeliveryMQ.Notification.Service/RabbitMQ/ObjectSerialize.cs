@@ -2,7 +2,7 @@ using System;
 using System.Text;
 using Newtonsoft.Json;
 
-namespace PaymentMq.Api.RabbitMQ
+namespace DeliveryMQ.Payment.Service.RabbitMQ
 {
     public static class ObjectSerialize
     {

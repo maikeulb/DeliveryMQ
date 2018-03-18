@@ -1,6 +1,6 @@
 using System;
 
-namespace PaymentMQ.Api.Commands
+namespace DeliveryMQ.Payment.Service.Commands
 {
 	public class Payment : ICommand
 	{
