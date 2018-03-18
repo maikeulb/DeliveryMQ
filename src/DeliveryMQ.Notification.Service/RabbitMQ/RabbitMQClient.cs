@@ -3,7 +3,7 @@ using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using RabbitMQ.Client.MessagePatterns;
 
-namespace DeliveryMQ.Payment.Service.RabbitMQ
+namespace DeliveryMQ.NotificationService.RabbitMQ
 {
     public class RabbitMQConsumer
     {
@@ -11,7 +11,7 @@ namespace DeliveryMQ.Payment.Service.RabbitMQ
         private static IConnection _connection;
         
         private const string ExchangeName = "Topic_Exchange";
-        private const string CardPaymentQueueName = "CardPaymentTopic_Queue";
+        private const string RegistrationQueueName = "RegistrationTopic_Queue";
 
         public void CreateConnection()
         {
@@ -31,31 +31,31 @@ namespace DeliveryMQ.Payment.Service.RabbitMQ
             {
                 using (var channel = _connection.CreateModel())
                 {
-                    Console.WriteLine("Listening for Topic <payment.cardpayment>");
+                    Console.WriteLine("Listening for Topic <delivery.registration>");
                     Console.WriteLine("-----------------------------------------");
                     Console.WriteLine();
 
                     channel.ExchangeDeclare(ExchangeName, "topic");
-                    channel.QueueDeclare(CardPaymentQueueName, 
+                    channel.QueueDeclare(RegistrationQueueName, 
                         true, false, false, null);
 
-                    channel.QueueBind(CardPaymentQueueName, ExchangeName, 
-                        "payment.cardpayment");
+                    channel.QueueBind(RegistrationQueueName, ExchangeName, 
+                        "delivery.registration");
 
                     channel.BasicQos(0, 10, false);
                     Subscription subscription = new Subscription(channel, 
-                        CardPaymentQueueName, false);
+                        RegistrationQueueName, false);
                     
                     while (true)
                     {
                         BasicDeliverEventArgs deliveryArguments = subscription.Next();
 
                         var message = 
-                            (CardPayment)deliveryArguments.Body.DeSerialize(typeof(CardPayment));
+                            (Register)deliveryArguments.Body.DeSerialize(typeof(Register));
 
                         var routingKey = deliveryArguments.RoutingKey;
 
-                        Console.WriteLine("--- Payment - Routing Key <{0}> : {1} : {2}", routingKey, message.CardNumber, message.Amount);
+                        Console.WriteLine("--- Notification - Routing Key <{0}> : {1} : {2} : {3}", routingKey, message.Name, message.Address, message.City);
                         subscription.Ack(deliveryArguments);
                     }
                 }
