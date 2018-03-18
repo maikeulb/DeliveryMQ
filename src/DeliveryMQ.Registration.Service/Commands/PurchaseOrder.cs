@@ -1,11 +1,11 @@
 using System;
 
-namespace DeliveryMQ.PurchaseOrder.Service.Commands
+namespace DeliveryMQ.RegistrationService.Commands
 {
-	public class PurchaseOrder : ICommand
+	public class Registration : ICommand
     {
-        public decimal AmountToPay;
-        public string PONumber;
-        public string CompanyName;
+        public string Name;
+        public string Address;
+        public string City;
     }
 }

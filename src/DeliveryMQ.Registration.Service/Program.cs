@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DeliveryMQ.PurchaseOrder.Service
+namespace DeliveryMQ.RegistrationService
 {
     class Program
     {

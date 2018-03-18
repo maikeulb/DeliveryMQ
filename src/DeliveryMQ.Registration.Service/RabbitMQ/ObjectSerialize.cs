@@ -2,7 +2,7 @@ using System;
 using System.Text;
 using Newtonsoft.Json;
 
-namespace DeliveryMQ.ProductOrder.Service.RabbitMQ
+namespace DeliveryMQ.RegistrationService.RabbitMQ
 {
     public static class ObjectSerialize
     {
