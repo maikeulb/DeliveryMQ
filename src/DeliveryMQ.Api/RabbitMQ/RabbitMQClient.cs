@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using DeliveryMQ.RabbitMQ.Commands;
-using DeliveryMQ.RabbitMQ.Client;
+using DeliveryMQ.Api.Commands;
+using RabbitMQ.Client;
 
 namespace DeliveryMQ.Api.RabbitMQ
 {
@@ -34,7 +34,7 @@ namespace DeliveryMQ.Api.RabbitMQ
             _model.QueueDeclare(DeliveryQueueName, true, false, false, null);
             _model.QueueDeclare(AllQueueName, true, false, false, null);
 
-            _model.QueueBind(DeliveryQueueName, ExchangeName, "delivery.registration"));
+            _model.QueueBind(DeliveryQueueName, ExchangeName, "delivery.registration");
             _model.QueueBind(AllQueueName, ExchangeName, "delivery.*");
         }
 
@@ -43,14 +43,14 @@ namespace DeliveryMQ.Api.RabbitMQ
             _connection.Close();
         }
 
-        public void SendDelivery(Delivery message)
+        public void SendRegistration(Register message)
         {
             SendMessage(message.Serialize(), "delivery.registration");
             Console.WriteLine(
                     " Delivery registered {0}, {1}, {2}", 
-                    message.name, 
-                    message.address, 
-                    message.city);
+                    message.Name, 
+                    message.Address, 
+                    message.City);
         }
 
         public void SendMessage(byte[] message, string routingKey)

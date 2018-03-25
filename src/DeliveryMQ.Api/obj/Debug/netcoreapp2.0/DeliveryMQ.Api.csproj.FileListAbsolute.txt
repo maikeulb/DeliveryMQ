@@ -1,0 +1,10 @@
+/home/michael/Projects-DotNet/DeliveryMQ/src/DeliveryMQ.Api/obj/Debug/netcoreapp2.0/DeliveryMQ.Api.csproj.CoreCompileInputs.cache
+/home/michael/Projects-DotNet/DeliveryMQ/src/DeliveryMQ.Api/obj/Debug/netcoreapp2.0/DeliveryMQ.Api.AssemblyInfoInputs.cache
+/home/michael/Projects-DotNet/DeliveryMQ/src/DeliveryMQ.Api/obj/Debug/netcoreapp2.0/DeliveryMQ.Api.AssemblyInfo.cs
+/home/michael/Projects-DotNet/DeliveryMQ/src/DeliveryMQ.Api/bin/Debug/netcoreapp2.0/DeliveryMQ.Api.deps.json
+/home/michael/Projects-DotNet/DeliveryMQ/src/DeliveryMQ.Api/bin/Debug/netcoreapp2.0/DeliveryMQ.Api.runtimeconfig.json
+/home/michael/Projects-DotNet/DeliveryMQ/src/DeliveryMQ.Api/bin/Debug/netcoreapp2.0/DeliveryMQ.Api.runtimeconfig.dev.json
+/home/michael/Projects-DotNet/DeliveryMQ/src/DeliveryMQ.Api/bin/Debug/netcoreapp2.0/DeliveryMQ.Api.dll
+/home/michael/Projects-DotNet/DeliveryMQ/src/DeliveryMQ.Api/bin/Debug/netcoreapp2.0/DeliveryMQ.Api.pdb
+/home/michael/Projects-DotNet/DeliveryMQ/src/DeliveryMQ.Api/obj/Debug/netcoreapp2.0/DeliveryMQ.Api.dll
+/home/michael/Projects-DotNet/DeliveryMQ/src/DeliveryMQ.Api/obj/Debug/netcoreapp2.0/DeliveryMQ.Api.pdb

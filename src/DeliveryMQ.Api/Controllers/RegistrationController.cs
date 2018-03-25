@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using DeliveryMQ.Api.Commands;
-using DeliveryMQ.Api.RabbitMq;
+using DeliveryMQ.Api.RabbitMQ;
 
 namespace DeliveryMQ.Api.Controllers
 {
@@ -12,7 +12,7 @@ namespace DeliveryMQ.Api.Controllers
     public class RegistrationController : Controller
     {       
         [HttpPost]
-        public ActionResult SendRegistration([FromBody] Registration command)
+        public ActionResult SendRegistration([FromBody] Register command)
         {
             try
             {
