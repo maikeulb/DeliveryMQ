@@ -47,11 +47,9 @@ namespace DeliveryMQ.Api.RabbitMQ
         {
             SendMessage(message.Serialize(), "delivery.registration");
             Console.WriteLine(
-                    " Delivery registered {0}, {1}, {2}", 
-                    message.Name, 
-                    message.Address, 
-                    message.Email,
-                    message.City);
+                    " Sent Registration {0} to queue: {1}", 
+                    message.Id, 
+                    RegistrationQueueName);
         }
 
         public void SendMessage(byte[] message, string routingKey)

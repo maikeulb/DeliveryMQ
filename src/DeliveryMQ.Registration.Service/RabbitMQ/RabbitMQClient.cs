@@ -34,7 +34,6 @@ namespace DeliveryMQ.RegistrationService.RabbitMQ
                 {
                     Console.WriteLine("Listening for Topic <delivery.registration>");
                     Console.WriteLine("------------------------------------------");
-                    Console.WriteLine();
                     
                     channel.ExchangeDeclare(ExchangeName, "topic");
                     channel.QueueDeclare(RegistrationQueueName, 
@@ -56,7 +55,7 @@ namespace DeliveryMQ.RegistrationService.RabbitMQ
 
                         var routingKey = registrationEvent.RoutingKey;
 
-                        Console.WriteLine("-- Register - Routing Key <{0}> : {1}, {2}, {3}, {4}", routingKey, message.Email, message.Name, message.Address, message.City);
+                        Console.WriteLine("Recieved message - Routing Key <{0}> : {1}, {2}, {3}, {4}", routingKey, message.Email, message.Name, message.Address, message.City);
                         subscription.Ack(registrationEvent);
                     }
                 }

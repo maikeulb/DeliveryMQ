@@ -4,10 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using DeliveryMQ.Api.Commands;
-using DeliveryMQ.Api.Models;
 using DeliveryMQ.Api.RabbitMQ;
 using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Mvc;
 using Marten;
 using Marten.Linq;
 using Marten.Schema;
@@ -33,32 +31,28 @@ namespace DeliveryMQ.Api.Controllers
         {
             try
             {
+                var registration = new Register();
                 using (var session = Store.LightweightSession())
                 {
-                    var registration = new RegisterModel
-                    { 
-                        Name  = command.Name, 
-                        Address = command.Address,
-                        City = command.City,
-                        Email = command.Email,
-                    };
+                    registration.Name  = command.Name;
+                    registration.Address = command.Address;
+                    registration.City = command.City;
+                    registration.Email = command.Email;
        
-                    _logger.LogInformation("registrationid {}", registration.Id);
                     session.Insert(registration);
 
                     session.SaveChanges();
                 }
 
                 RabbitMQClient client = new RabbitMQClient();
-                client.SendRegistration(command);
+                client.SendRegistration(registration);
                 client.Close();
+                return Ok(registration);
             }
             catch (Exception)
             {
                 return BadRequest();
             }
-
-            return Ok(command);
         }
     }
 }
