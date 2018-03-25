@@ -1,4 +1,5 @@
 ﻿using System;
+using DeliveryMQ.NotificationService.RabbitMQ;
 
 namespace DeliveryMQ.NotificationService
 {
@@ -6,7 +7,9 @@ namespace DeliveryMQ.NotificationService
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            RabbitMQConsumer client = new RabbitMQConsumer();
+            client.CreateConnection();
+            client.ProcessMessages();
         }
     }
 }

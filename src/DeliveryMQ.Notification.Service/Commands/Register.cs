@@ -2,7 +2,7 @@ using System;
 
 namespace DeliveryMQ.NotificationService.Commands
 {
-	public class Registration : ICommand
+	public class Register: ICommand
 	{
 		public string Name { get; set; }
 		public string Address { get; set; }

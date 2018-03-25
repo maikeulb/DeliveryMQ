@@ -12,7 +12,7 @@ namespace DeliveryMQ.Api.RabbitMQ
         private static IModel _model;
 
         private const string ExchangeName = "Topic_Exchange";
-        private const string DeliveryQueueName = "DeliveryTopic_Queue";
+        private const string RegistrationQueueName = "RegistrationTopic_Queue";
         private const string AllQueueName = "AllTopic_Queue";
 
         public RabbitMQClient()
@@ -24,17 +24,17 @@ namespace DeliveryMQ.Api.RabbitMQ
         {
             _factory = new ConnectionFactory
             {
-                HostName = "localhost", UserName = "guest", Password = "guest"
+                HostName = "172.17.0.4", UserName = "guest", Password = "guest"
             };
 
             _connection = _factory.CreateConnection();
             _model = _connection.CreateModel();
             _model.ExchangeDeclare(ExchangeName, "topic");
 
-            _model.QueueDeclare(DeliveryQueueName, true, false, false, null);
+            _model.QueueDeclare(RegistrationQueueName, true, false, false, null);
             _model.QueueDeclare(AllQueueName, true, false, false, null);
 
-            _model.QueueBind(DeliveryQueueName, ExchangeName, "delivery.registration");
+            _model.QueueBind(RegistrationQueueName, ExchangeName, "delivery.registration");
             _model.QueueBind(AllQueueName, ExchangeName, "delivery.*");
         }
 
@@ -50,6 +50,7 @@ namespace DeliveryMQ.Api.RabbitMQ
                     " Delivery registered {0}, {1}, {2}", 
                     message.Name, 
                     message.Address, 
+                    message.Email,
                     message.City);
         }
 

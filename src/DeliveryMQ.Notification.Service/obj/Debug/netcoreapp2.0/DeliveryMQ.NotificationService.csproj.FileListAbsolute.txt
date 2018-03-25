@@ -1,0 +1,10 @@
+/home/michael/Projects-DotNet/DeliveryMQ/src/DeliveryMQ.Notification.Service/obj/Debug/netcoreapp2.0/DeliveryMQ.NotificationService.csproj.CoreCompileInputs.cache
+/home/michael/Projects-DotNet/DeliveryMQ/src/DeliveryMQ.Notification.Service/obj/Debug/netcoreapp2.0/DeliveryMQ.NotificationService.AssemblyInfoInputs.cache
+/home/michael/Projects-DotNet/DeliveryMQ/src/DeliveryMQ.Notification.Service/obj/Debug/netcoreapp2.0/DeliveryMQ.NotificationService.AssemblyInfo.cs
+/home/michael/Projects-DotNet/DeliveryMQ/src/DeliveryMQ.Notification.Service/bin/Debug/netcoreapp2.0/DeliveryMQ.NotificationService.deps.json
+/home/michael/Projects-DotNet/DeliveryMQ/src/DeliveryMQ.Notification.Service/bin/Debug/netcoreapp2.0/DeliveryMQ.NotificationService.runtimeconfig.json
+/home/michael/Projects-DotNet/DeliveryMQ/src/DeliveryMQ.Notification.Service/bin/Debug/netcoreapp2.0/DeliveryMQ.NotificationService.runtimeconfig.dev.json
+/home/michael/Projects-DotNet/DeliveryMQ/src/DeliveryMQ.Notification.Service/bin/Debug/netcoreapp2.0/DeliveryMQ.NotificationService.dll
+/home/michael/Projects-DotNet/DeliveryMQ/src/DeliveryMQ.Notification.Service/bin/Debug/netcoreapp2.0/DeliveryMQ.NotificationService.pdb
+/home/michael/Projects-DotNet/DeliveryMQ/src/DeliveryMQ.Notification.Service/obj/Debug/netcoreapp2.0/DeliveryMQ.NotificationService.dll
+/home/michael/Projects-DotNet/DeliveryMQ/src/DeliveryMQ.Notification.Service/obj/Debug/netcoreapp2.0/DeliveryMQ.NotificationService.pdb

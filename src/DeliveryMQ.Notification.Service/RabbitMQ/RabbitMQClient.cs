@@ -2,6 +2,7 @@ using System;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using RabbitMQ.Client.MessagePatterns;
+using DeliveryMQ.NotificationService.Commands;
 
 namespace DeliveryMQ.NotificationService.RabbitMQ
 {
@@ -11,12 +12,12 @@ namespace DeliveryMQ.NotificationService.RabbitMQ
         private static IConnection _connection;
         
         private const string ExchangeName = "Topic_Exchange";
-        private const string RegistrationQueueName = "NotificationTopic_Queue";
+        private const string RegistrationQueueName = "RegistrationTopic_Queue";
 
         public void CreateConnection()
         {
             _factory = new ConnectionFactory {
-                HostName = "localhost",
+                HostName = "172.17.0.4",
                 UserName = "guest", Password = "guest" };            
         }
 
@@ -31,7 +32,7 @@ namespace DeliveryMQ.NotificationService.RabbitMQ
             {
                 using (var channel = _connection.CreateModel())
                 {
-                    Console.WriteLine("Listening for Topic <delivery.notification>");
+                    Console.WriteLine("Listening for Topic <delivery.registration>");
                     Console.WriteLine("-----------------------------------------");
                     Console.WriteLine();
 
@@ -48,15 +49,15 @@ namespace DeliveryMQ.NotificationService.RabbitMQ
                     
                     while (true)
                     {
-                        BasicDeliverEventArgs deliveryArguments = subscription.Next();
+                        BasicDeliverEventArgs registrationEvent = subscription.Next();
 
                         var message = 
-                            (Register)deliveryArguments.Body.DeSerialize(typeof(Register));
+                            (Register)registrationEvent.Body.DeSerialize(typeof(Register));
 
-                        var routingKey = deliveryArguments.RoutingKey;
+                        var routingKey = registrationEvent.RoutingKey;
 
                         Console.WriteLine("--- Notification - Routing Key <{0}> : {1}, {2}, {3}, {4}", routingKey, message.Email, message.Name, message.Address, message.City);
-                        subscription.Ack(deliveryArguments);
+                        subscription.Ack(registrationEvent);
                     }
                 }
             }

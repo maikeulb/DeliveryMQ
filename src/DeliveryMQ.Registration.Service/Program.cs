@@ -1,4 +1,5 @@
 ﻿using System;
+using DeliveryMQ.RegistrationService.RabbitMQ;
 
 namespace DeliveryMQ.RegistrationService
 {
@@ -6,7 +7,9 @@ namespace DeliveryMQ.RegistrationService
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            RabbitMQConsumer client = new RabbitMQConsumer();
+            client.CreateConnection();
+            client.ProcessMessages();
         }
     }
 }
