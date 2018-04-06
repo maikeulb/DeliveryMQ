@@ -38,9 +38,7 @@ namespace DeliveryMQ.Api.Controllers
                     registration.Address = command.Address;
                     registration.City = command.City;
                     registration.Email = command.Email;
-       
                     session.Insert(registration);
-
                     session.SaveChanges();
                 }
 

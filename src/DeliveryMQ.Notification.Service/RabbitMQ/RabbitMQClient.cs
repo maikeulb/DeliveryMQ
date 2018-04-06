@@ -12,7 +12,7 @@ namespace DeliveryMQ.NotificationService.RabbitMQ
         private static IConnection _connection;
         
         private const string ExchangeName = "Topic_Exchange";
-        private const string RegistrationQueueName = "RegistrationTopic_Queue";
+        private const string AllQueueName = "AllTopic_Queue";
 
         public void CreateConnection()
         {
@@ -32,32 +32,32 @@ namespace DeliveryMQ.NotificationService.RabbitMQ
             {
                 using (var channel = _connection.CreateModel())
                 {
-                    Console.WriteLine("Listening for Topic <delivery.registration>");
+                    Console.WriteLine("Listening for Topic <delivery.*>");
                     Console.WriteLine("-----------------------------------------");
                     Console.WriteLine();
 
                     channel.ExchangeDeclare(ExchangeName, "topic");
-                    channel.QueueDeclare(RegistrationQueueName, 
+                    channel.QueueDeclare(AllQueueName, 
                         true, false, false, null);
 
-                    channel.QueueBind(RegistrationQueueName, ExchangeName, 
-                        "delivery.notification");
+                    channel.QueueBind(AllQueueName, ExchangeName, 
+                        "delivery.*");
 
                     channel.BasicQos(0, 10, false);
                     Subscription subscription = new Subscription(channel, 
-                        RegistrationQueueName, false);
+                        AllQueueName, false);
                     
                     while (true)
                     {
-                        BasicDeliverEventArgs registrationEvent = subscription.Next();
+                        BasicDeliverEventArgs allEvent = subscription.Next();
 
                         var message = 
-                            (Register)registrationEvent.Body.DeSerialize(typeof(Register));
+                            (Register)allEvent.Body.DeSerialize(typeof(Register));
 
-                        var routingKey = registrationEvent.RoutingKey;
+                        var routingKey = allEvent.RoutingKey;
 
-                        Console.WriteLine("--- Notification - Routing Key <{0}> : {1}, {2}, {3}, {4}", routingKey, message.Email, message.Name, message.Address, message.City);
-                        subscription.Ack(registrationEvent);
+                        Console.WriteLine("Notification - Routing Key <{0}> : {1}, {2}, {3}, {4}", routingKey, message.Email, message.Name, message.Address, message.City);
+                        subscription.Ack(allEvent);
                     }
                 }
             }
